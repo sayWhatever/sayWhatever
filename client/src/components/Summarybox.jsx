@@ -17,7 +17,7 @@ const Summarybox = ({ socket, summaries }) => {
                     )
                 }
             </div>
-            <button onClick={() => { getSummary() }} ><i>send</i></button>
+            <button onClick={() => { getSummary() }} ><i>TLDR</i></button>
         </>
     )
 }
