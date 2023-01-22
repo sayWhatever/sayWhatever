@@ -5,7 +5,7 @@ import Summarybox from "./components/Summarybox";
 import { io } from "socket.io-client";
 import { useEffect, useState } from "react";
 
-const socket = io("localhost:5000/", {
+const socket = io("https://nwhacks2023-api.herokuapp.com/", {
   transports: ["websocket"],
 });
 
