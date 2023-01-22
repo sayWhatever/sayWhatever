@@ -16,20 +16,22 @@ const Chatbox = ({userName, socket}) => {
 
     return (
         <section class="flex flex-col items-center">
-            <div class="h-full">
-                <p>Messages would go here</p>
-            </div>
-            <div>
-            <input  
-                class="text-message focus:outline-none rounded-xl border-2 px-2 w-64 h-10 bg-background"
-                placeholder="enter your message here"
-                        type="text"
-                        id="message"
-                        name="message"
-                        onChange={handleMessage}
-                        value={message}
-                />
-                <button onClick={()=>{sendMessage(message)}} >send</button>
+            <div class="">
+                <div class="bg-white h-60 rounded-t-lg p-4 shadow-md">
+                    <p>Messages would go here</p>
+                </div>
+                <div class="bg-white rounded-b-lg shadow-md">
+                    <input  
+                        class="text-message focus:outline-none rounded-xl border-2 px-2 w-64 h-10 bg-background"
+                        placeholder="enter your message here"
+                                type="text"
+                                id="message"
+                                name="message"
+                                onChange={handleMessage}
+                                value={message}
+                        />
+                    <button onClick={()=>{sendMessage(message)}} >send</button>
+                </div>
             </div>
         </section>
     )
