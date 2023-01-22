@@ -2,6 +2,7 @@ import "./App.css";
 import Chatbox from "./components/Chatbox";
 import NameMenu from "./components/NameMenu";
 import Summarybox from "./components/Summarybox";
+import Navbar from "./components/Navbar";
 import { io } from "socket.io-client";
 import { useEffect, useState } from "react";
 
@@ -50,8 +51,9 @@ const App = () => {
   }, []);
   return (
     <div class="bg-background w-screen h-screen">
+      <Navbar/>
       <h2> Say Whatever</h2>
-      {userName === "" ? <span></span> : <p class="text-2xl font-medium text-heading font-poppins pb-2">Hi {userName}👋,</p>}
+      {userName === "" ? <span></span> : <p class="text-2xl font-medium text-heading font-poppins pb-2">Hi {userName} 👋,</p>}
       {userName === "" ? (
         <NameMenu
           formName={formName}

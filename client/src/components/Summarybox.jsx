@@ -10,7 +10,7 @@ const Summarybox = ({ socket, summaries }) => {
     return (
         <section class="flex flex-col items-center">
             <div>
-                <p>Summaries go here</p>
+                <p class="leading-10 focus:shadow-outline text-message focus:outline-none px-2 h-10 bg-background w-full">Summaries go here</p>
                 {
                     summaries.map((summary, i) =>
                         <p key={i}>{summary}</p>

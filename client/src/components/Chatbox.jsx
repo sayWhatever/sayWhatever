@@ -25,7 +25,6 @@ const Chatbox = ({ userName, socket, messages }) => {
                         )
                     }
                 </div>
-                <div class="bg-inactive rounded-b-lg shadow-md">
                     <input 
                         class="focus:shadow-outline text-message focus:outline-none rounded-xl border-2 px-2 h-10 bg-background w-full"
                         placeholder="enter your message here"
@@ -36,7 +35,8 @@ const Chatbox = ({ userName, socket, messages }) => {
                             value={message}
                             spellcheck="true"
                     />
-                    <button class="w-10 bg-inactive rounded-lg p-auto text-heading" onClick={() => { sendMessage(message) }} ><i>send</i></button>
+                <div class="text-center bg-inactive rounded-b-lg shadow-md hover:bg-lightPurple rounded-lg leading-7">
+                    <button class="text-center w-10 bg-inactive rounded-lg p-auto text-heading hover:bg-lightPurple" onClick={() => { sendMessage(message) }} ><i>send</i></button>
                 </div>
             </div>
         </section>
