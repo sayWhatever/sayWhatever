@@ -2,6 +2,12 @@ import React from "react";
 
 const NameMenu = ({formName,handleUserName, handleChange}) => {
 
+    const handleEnter = (event) => {
+        if (event.key === 'Enter') {
+          handleUserName(formName);
+        }
+      };
+
     return (
         <section class="">
             <div class="">
@@ -13,9 +19,10 @@ const NameMenu = ({formName,handleUserName, handleChange}) => {
                             id="userName"
                             name="userName"
                             onChange={handleChange}
+                            onKeyDown={handleEnter}
                             value={formName}
                     />
-                    <button class="hover:translate-y-1 m-auto mt-4 rounded-lg h-8 w-16 drop-shadow-lg bg-inactive text-heading font-poppins transition ease-in-out hover:bg-lightPurple" onClick={()=>{handleUserName(formName)}} ><i>send</i></button>
+                    <button class="hover:translate-y-1 m-auto mt-4 rounded-lg h-8 w-16 drop-shadow-lg bg-inactive text-heading font-poppins transition ease-in-out hover:bg-lightPurple" onClick={()=>{handleUserName(formName)}} >Pick</button>
                 </div>
             </div>
         </section>
