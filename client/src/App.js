@@ -12,6 +12,7 @@ const App = () => {
   const [isConnected, setIsConnected] = useState(socket.connected);
   const [userName, setUserName] = useState("");
   const [formName, setFormName] = useState("");
+  const [messages, setMessages] = useState([]);
 
   const handleUserName = (name) => {
     setUserName(name);
@@ -30,13 +31,16 @@ const App = () => {
     socket.on("disconnect", () => {
       setIsConnected(false);
     });
+    socket.on("msgToClients", (received) => {
+      setMessages(messages=> [...messages, received])
+    });
 
     return () => {
       socket.off("connect");
       socket.off("disconnect");
+      socket.off("msgToClients")
     };
   }, []);
-
   return (
     <div>
       <h2> Say Whatever</h2>
@@ -48,7 +52,11 @@ const App = () => {
           handleChange={handleChange}
         />
       ) : (
-        <Chatbox userName={userName} socket={socket} />
+        <Chatbox 
+        userName={userName} 
+        socket={socket}
+        messages={messages}
+         />
       )}
     </div>
   );

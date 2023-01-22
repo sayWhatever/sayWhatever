@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const Chatbox = ({userName, socket}) => {
+const Chatbox = ({userName, socket, messages}) => {
 
     const [message,setMessage] = useState("");
 
@@ -9,15 +9,21 @@ const Chatbox = ({userName, socket}) => {
         setMessage(event.target.value);
     }
 
+
     const sendMessage = clientMessage => {
         console.log("message", userName + " : " + clientMessage)
         socket.emit("msgToServer", userName + " : " + clientMessage);
     }
 
+
     return (
         <>
         <div>
-            <p>Messages would go here</p>
+            {
+                messages.map((message, i)=>
+                    <p key={i}>{message}</p>
+                )
+            }
         </div>
         <input
                 type="text"
