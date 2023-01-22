@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         background: "#0F172A",
+        foreground: "#1e293b",
         heading: "#F8FAFC",
         message: "#8E9CB1",
         darkPurple: "#4338CA",
@@ -16,7 +17,6 @@ module.exports = {
     fontFamily: {
       roboto: ["Roboto", "sans-serif"],
       poppins: ["Poppins", "sans-serif"],
-      fira: ["Fira Code", "monospace"]
     },
 
   },

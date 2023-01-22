@@ -15,7 +15,7 @@ const NameMenu = ({formName,handleUserName, handleChange}) => {
                             onChange={handleChange}
                             value={formName}
                     />
-                    <button class="hover:translate-y-1 m-auto mt-4 rounded-lg h-8 w-16 drop-shadow-lg bg-inactive text-heading font-poppins transition ease-in-out hover:bg-lightPurple" onClick={()=>{handleUserName(formName)}} ><i>send</i></button>
+                    <button class="hover:translate-y-1 m-auto mt-4 rounded-lg h-8 w-16 drop-shadow-lg bg-inactive text-heading font-poppins transition ease-in-out hover:bg-lightPurple" onClick={()=>{handleUserName(formName)}} >send</button>
                 </div>
             </div>
         </section>

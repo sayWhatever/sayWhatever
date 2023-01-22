@@ -1,8 +1,5 @@
 import "./App.css";
-import Chatbox from "./components/Chatbox";
-import NameMenu from "./components/NameMenu";
-import Summarybox from "./components/Summarybox";
-import Navbar from "./components/Navbar";
+import { Chatbox, NameMenu, Navbar, Summarybox } from "./components";
 import { io } from "socket.io-client";
 import { useEffect, useState } from "react";
 
