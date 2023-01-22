@@ -1,14 +1,19 @@
 import React from "react";
 
-const NameMenu = ({handleUserName}) => {
+const NameMenu = ({formName,handleUserName, handleChange}) => {
 
     return (
         <>
-        <h3>Choose a username</h3>
-        <form onSubmit={e => {handleUserName(e.target.value)}}>
-            <input id="m" />
-          <button ><i>send</i></button> 
-        </form>
+            <h3>Choose a username</h3>
+            <input
+                type="text"
+                id="userName"
+                name="userName"
+                onChange={handleChange}
+                value={formName}
+            />
+            <button onClick={()=>{handleUserName(formName)}} ><i>send</i></button>
+
         </>
     )
 }

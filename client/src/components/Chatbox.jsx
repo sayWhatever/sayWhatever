@@ -1,14 +1,32 @@
 import React from "react";
+import { useState } from "react";
 
-const Chatbox = () => {
+const Chatbox = ({userName, socket}) => {
+
+    const [message,setMessage] = useState("");
+
+    const handleMessage = (event) => {
+        setMessage(event.target.value);
+    }
+
+    const sendMessage = clientMessage => {
+        console.log("message", userName + " : " + clientMessage)
+        socket.emit("message", userName + " : " + clientMessage);
+    }
 
     return (
         <>
-        <form onSubmit={e => {}} style={{display: 'flex'}}>
-            <input id="m" />
-            {/* {width > 1000 ? <button style={{width:'100px'}} type="submit">Send Message</button> : */}
-          <button style={{width:'50px'}}><i style={{fontSize:'15px'}} class="material-icons">send</i></button> 
-        </form>
+        <div>
+            <p>Messages would go here</p>
+        </div>
+        <input
+                type="text"
+                id="message"
+                name="message"
+                onChange={handleMessage}
+                value={message}
+            />
+            <button onClick={()=>{sendMessage(message)}} ><i>send</i></button>
         </>
     )
 }

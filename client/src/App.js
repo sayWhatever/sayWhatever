@@ -9,17 +9,23 @@ const socket = io("localhost:5000/", {
 });
 
 const App = () => {
-  const [isConnected, setIsConnected] = useState(socket.connected);
-  const [userName, setUserName] = useState("");
 
-  const handleUserName = name => {
+const [isConnected, setIsConnected] = useState(socket.connected);
+const [userName, setUserName] = useState("");
+const [formName, setFormName] = useState("");
+
+  const handleUserName = (name) => {
     setUserName(name);
   }
 
+  const handleChange = (event) => {
+    setFormName(event.target.value);
+  };
 
   useEffect(() => {
     socket.on('connect', () => {
       setIsConnected(true);
+      console.log("socket set to true");
     });
 
     socket.on('disconnect', () => {
@@ -32,14 +38,19 @@ const App = () => {
     };
   }, []);
 
-
-
-
   return (
     <div>
       <h2> Say Whatever</h2>
-      {userName !== "" ? <Chatbox/> : <NameMenu setUserName={handleUserName}/>}
-
+      {userName === "" ? <span></span>  : <p>Hi {userName}</p>}
+      {userName === "" ? 
+      <NameMenu 
+      formName={formName} 
+      handleUserName={handleUserName}
+      handleChange={handleChange}/>         
+     :
+     <Chatbox 
+     userName={userName}
+     socket={socket}/>}
     </div>
   );
 }
