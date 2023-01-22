@@ -8,7 +8,7 @@ const Summarybox = ({ socket, summaries }) => {
     }
 
     return (
-        <>
+        <section class="flex flex-col items-center">
             <div>
                 <p>Summaries go here</p>
                 {
@@ -18,7 +18,7 @@ const Summarybox = ({ socket, summaries }) => {
                 }
             </div>
             <button onClick={() => { getSummary() }} ><i>TLDR</i></button>
-        </>
+        </section>
     )
 }
 export default Summarybox;
