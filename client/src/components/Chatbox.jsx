@@ -15,19 +15,23 @@ const Chatbox = ({userName, socket}) => {
     }
 
     return (
-        <>
-        <div>
-            <p>Messages would go here</p>
-        </div>
-        <input
-                type="text"
-                id="message"
-                name="message"
-                onChange={handleMessage}
-                value={message}
-            />
-            <button onClick={()=>{sendMessage(message)}} ><i>send</i></button>
-        </>
+        <section class="flex flex-col items-center">
+            <div class="h-full">
+                <p>Messages would go here</p>
+            </div>
+            <div>
+            <input  
+                class="text-message focus:outline-none rounded-xl border-2 px-2 w-64 h-10 bg-background"
+                placeholder="enter your message here"
+                        type="text"
+                        id="message"
+                        name="message"
+                        onChange={handleMessage}
+                        value={message}
+                />
+                <button onClick={()=>{sendMessage(message)}} >send</button>
+            </div>
+        </section>
     )
 }
 
