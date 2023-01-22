@@ -4,7 +4,7 @@ import { useState } from "react";
 const Summarybox = ({ socket, summaries }) => {
 
     const getSummary = () => {
-        socket.emit("sumMsg");
+        socket.emit("toSumMsg");
     }
 
     return (

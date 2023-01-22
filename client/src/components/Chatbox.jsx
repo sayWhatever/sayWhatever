@@ -11,7 +11,7 @@ const Chatbox = ({ userName, socket, messages }) => {
 
     const sendMessage = clientMessage => {
         console.log("message", userName + " : " + clientMessage)
-        socket.emit("msgToServer", userName + " : " + clientMessage);
+        socket.emit("msgToServer", userName + " : " + clientMessage  + "\r\n");
         setMessage("");
     }
 
@@ -30,6 +30,7 @@ const Chatbox = ({ userName, socket, messages }) => {
                 name="message"
                 onChange={handleMessage}
                 value={message}
+                spellcheck="true"
             />
             <button onClick={() => { sendMessage(message) }} ><i>send</i></button>
         </>
