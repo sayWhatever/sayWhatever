@@ -45,7 +45,7 @@ const Chatbox = ({ userName, socket, messages }) => {
                         </div>
                     </li>
                 </ul>
-                <ul class="flex flex-col">
+                {/* <ul class="flex flex-col">
                     <h1 class="text-heading text-xl font-poppins font-medium m-auto pb-2">Summary</h1>
                             <div class="bg-foreground border-t-2 border-x-2 border-lightPurple h-60 rounded-t-lg p-4 shadow-md text-heading font-poppins">
                             {
@@ -68,7 +68,7 @@ const Chatbox = ({ userName, socket, messages }) => {
                         />
                         </div>
                     </li>
-                </ul>
+                </ul> */}
                 </div>
             </div>
         </section>
