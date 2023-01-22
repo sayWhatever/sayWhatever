@@ -1,6 +1,7 @@
 import "./App.css";
 import Chatbox from "./components/Chatbox";
 import NameMenu from "./components/NameMenu";
+import Summarybox from "./components/Summarybox";
 import { io } from "socket.io-client";
 import { useEffect, useState } from "react";
 
@@ -13,6 +14,7 @@ const App = () => {
   const [userName, setUserName] = useState("");
   const [formName, setFormName] = useState("");
   const [messages, setMessages] = useState([]);
+  const [summaries, setSummaries] = useState([]);
 
   const handleUserName = (name) => {
     setUserName(name);
@@ -35,10 +37,15 @@ const App = () => {
       setMessages(messages=> [...messages, received])
     });
 
+    socket.on("sumMsg", (received) => {
+      setSummaries(summaries=> [...summaries, received])
+    })
+
     return () => {
       socket.off("connect");
       socket.off("disconnect");
-      socket.off("msgToClients")
+      socket.off("msgToClients");
+      socket.off("sumMsg");
     };
   }, []);
   return (
@@ -52,11 +59,17 @@ const App = () => {
           handleChange={handleChange}
         />
       ) : (
-        <Chatbox 
-        userName={userName} 
-        socket={socket}
-        messages={messages}
-         />
+          <>
+            <Chatbox
+              userName={userName}
+              socket={socket}
+              messages={messages}
+            />
+            <Summarybox 
+              socket={socket}
+              summaries={summaries}
+            />
+          </>
       )}
     </div>
   );

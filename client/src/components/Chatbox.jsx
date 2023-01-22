@@ -9,7 +9,6 @@ const Chatbox = ({ userName, socket, messages }) => {
         setMessage(event.target.value);
     }
 
-
     const sendMessage = clientMessage => {
         console.log("message", userName + " : " + clientMessage)
         socket.emit("msgToServer", userName + " : " + clientMessage);
@@ -36,6 +35,4 @@ const Chatbox = ({ userName, socket, messages }) => {
         </>
     )
 }
-
-
 export default Chatbox;
