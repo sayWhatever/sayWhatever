@@ -49,9 +49,9 @@ const App = () => {
     };
   }, []);
   return (
-    <div>
+    <div class="bg-background w-screen h-screen">
       <h2> Say Whatever</h2>
-      {userName === "" ? <span></span> : <p>Hi {userName}</p>}
+      {userName === "" ? <span></span> : <p class="text-2xl font-medium text-heading font-poppins pb-2">Hi {userName}👋,</p>}
       {userName === "" ? (
         <NameMenu
           formName={formName}
