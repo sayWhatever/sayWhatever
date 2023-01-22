@@ -10,12 +10,9 @@ const Chatbox = ({ userName, socket, messages }) => {
     }
 
     const sendMessage = clientMessage => {
-        console.log({"userName": userName, 
-        "clientMessage": clientMessage})
-        socket.emit("msgToServer", 
-        {"userName": userName, 
-        "clientMessage": clientMessage});
-        setMessage("");
+        console.log("message", userName + ": " + clientMessage)
+        socket.emit("msgToServer", userName + ": " + clientMessage);
+       setMessage("");
     }
 
     return (
