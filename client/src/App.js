@@ -3,7 +3,7 @@ import { Chatbox, NameMenu, Navbar, Summarybox } from "./components";
 import { io } from "socket.io-client";
 import { useEffect, useState } from "react";
 
-const socket = io("https://nwhacks2023-api.herokuapp.com/", {
+const socket = io("http://localhost:5000/", {
   transports: ["websocket"],
 });
 
