@@ -1,5 +1,6 @@
 import './App.css';
 import Chatbox from './components/Chatbox';
+import NameMenu from './components/NameMenu'
 import { io } from 'socket.io-client';
 import { useEffect, useState } from 'react';
 
@@ -9,10 +10,14 @@ const socket = io("localhost:5000/", {
 
 const App = () => {
   const [isConnected, setIsConnected] = useState(socket.connected);
-  const [lastPong, setLastPong] = useState(null);
+  const [userName, setUserName] = useState("");
+
+  const handleUserName = name => {
+    setUserName(name);
+  }
+
 
   useEffect(() => {
-    console.log("useEffect run");
     socket.on('connect', () => {
       setIsConnected(true);
     });
@@ -21,29 +26,20 @@ const App = () => {
       setIsConnected(false);
     });
 
-    socket.on('pong', () => {
-      setLastPong(new Date().toISOString());
-    });
-
     return () => {
       socket.off('connect');
       socket.off('disconnect');
-      socket.off('pong');
     };
   }, []);
 
-  const sendPing = () => {
-    socket.emit('ping');
-  }
+
 
 
   return (
     <div>
       <h2> Say Whatever</h2>
-      <Chatbox callMethod={sendPing}/>
-      <p>Connected: {'' + isConnected}</p>
-      <p>Last pong: {lastPong || '-'}</p>
-      <button onClick={sendPing}>Send ping</button>
+      {userName !== "" ? <Chatbox/> : <NameMenu setUserName={handleUserName}/>}
+
     </div>
   );
 }
